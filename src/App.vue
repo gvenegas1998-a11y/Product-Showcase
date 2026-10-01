@@ -1,30 +1,40 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app" class="app-layout">
+    <AppHeader />
+    <main class="main-content">
+      <ProductList />
+    </main>
+    <AppFooter />
+  </div>
 </template>
 
+<script setup>
+import AppHeader from './components/AppHeader.vue'
+import ProductList from './components/ProductList.vue'
+import AppFooter from './components/AppFooter.vue'
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+/* Estilos globales */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #f4f6f8;
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.main-content {
+  flex: 1;
 }
 </style>
